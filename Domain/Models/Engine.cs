@@ -8,8 +8,9 @@ namespace TestAPI.Domain.Models
     /// <summary>
     /// Represents an engine database object
     /// </summary>
-    public class Engine
+    public class Engine : DatabaseObject
     {
+
         [BsonId(Order = 1)]
         public uint Id { get; set; }
 

@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Mvc;
 using TestAPI.Domain.Repositories;
 using TestAPI.Domain.Services;
@@ -18,11 +19,12 @@ namespace TestAPI.Controllers
         [HttpGet]
         public IActionResult Get([FromQuery(Name = "id")] int id = -1)
         {
+            Console.WriteLine(id);
             return id == -1 ? Ok(_rocketService.Get()) : Ok(_rocketService.Get(id));
         }
         
         [HttpGet("{id:int}")]
-        public IActionResult GetSingleEngine(int id)
+        public IActionResult GetSingleRocket(int id)
         {
             return Ok(_rocketService.Get(id));
         }
