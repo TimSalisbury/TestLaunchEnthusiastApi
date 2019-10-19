@@ -10,16 +10,16 @@ namespace TestAPI.Domain.Models
         [BsonElement("diameter", Order = 1)]
         public double Diameter { get; set; }
 
-        [BsonElement("length", Order = 2)] 
-        public double Length { get; set; }
+        [BsonElement("height", Order = 2)] 
+        public double Height { get; set; }
 
         [BsonElement("mass", Order = 3)]
         public double Mass { get; set; }
 
-        [BsonElement("diameter_unit", Order = 4)]
+        [BsonElement("length_unit", Order = 4)]
         [JsonConverter(typeof(StringEnumConverter))]
         [BsonRepresentation(BsonType.String)]
-        public EUnitOfMeasurement DiameterUnit { get; set; }
+        public EUnitOfMeasurement LengthUnit { get; set; }
         
         [BsonElement("mass_unit", Order = 5)]
         [JsonConverter(typeof(StringEnumConverter))]

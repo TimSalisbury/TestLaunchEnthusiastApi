@@ -13,7 +13,7 @@ namespace TestAPI.Domain.Models
         [BsonElement("thrustSL", Order = 2)]
         public double ThrustSealevel { get; set; }
 
-        [BsonElement("unit", Order = 3)]
+        [BsonElement("thrust_unit", Order = 3)]
         [JsonConverter(typeof(StringEnumConverter))]
         [BsonRepresentation(BsonType.String)]
         public EUnitOfMeasurement ThrustUnit { get; set; }
