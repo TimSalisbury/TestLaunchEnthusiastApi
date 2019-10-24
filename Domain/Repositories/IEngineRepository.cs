@@ -4,10 +4,7 @@ using TestAPI.Domain.Models;
 
 namespace TestAPI.Domain.Repositories
 {
-    public interface IEngineRepository
+    public interface IEngineRepository : IBaseRepository<Engine>
     {
-        List<Engine> Get();
-
-        Engine Get(int id);
     }
 }

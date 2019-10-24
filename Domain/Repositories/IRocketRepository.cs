@@ -3,10 +3,7 @@ using TestAPI.Domain.Models;
 
 namespace TestAPI.Domain.Repositories
 {
-    public interface IRocketRepository
+    public interface IRocketRepository : IBaseRepository<Rocket>
     {
-        List<Rocket> Get();
-
-        Rocket Get(int id);
     }
 }

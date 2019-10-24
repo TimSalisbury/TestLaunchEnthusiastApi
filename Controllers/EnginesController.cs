@@ -32,7 +32,10 @@ namespace TestAPI.Controllers
         [HttpGet]
         public IActionResult Get([FromQuery(Name = "id")] int id = -1)
         {
-            return id == -1 ? Ok(_engineService.Get()) : Ok(_engineService.Get(id));
+            if (id == -1) return Ok(_engineService.Get());
+            var engine = _engineService.Get(id);
+            if (engine == null) return NotFound();
+            return Ok(engine);
         }
 
         /// <summary>
@@ -43,7 +46,9 @@ namespace TestAPI.Controllers
         [HttpGet("{id:int}")]
         public IActionResult GetSingleEngine(int id)
         {
-            return Ok(_engineService.Get(id));
+            var engine = _engineService.Get(id);
+            if (engine == null) return NotFound();
+            return Ok(engine);
         }
     }
 }

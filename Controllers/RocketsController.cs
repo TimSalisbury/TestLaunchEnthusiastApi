@@ -19,13 +19,17 @@ namespace TestAPI.Controllers
         [HttpGet]
         public IActionResult Get([FromQuery(Name = "id")] int id = -1)
         {
-            Console.WriteLine(id);
-            return id == -1 ? Ok(_rocketService.Get()) : Ok(_rocketService.Get(id));
+            if (id == -1) return Ok(_rocketService.Get());
+            var rocket = _rocketService.Get(id);
+            if (rocket == null) return NotFound();
+            return Ok(_rocketService.Get(id));
         }
         
         [HttpGet("{id:int}")]
         public IActionResult GetSingleRocket(int id)
         {
+            var rocket = _rocketService.Get(id);
+            if (rocket == null) return NotFound();
             return Ok(_rocketService.Get(id));
         }
     }

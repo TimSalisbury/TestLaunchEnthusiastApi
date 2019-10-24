@@ -9,6 +9,8 @@ namespace TestAPI.Persistence.Contexts
         public IMongoCollection<Engine> Engines { get; set; }
         public IMongoCollection<Rocket> Rockets { get; set; }
 
+        public IMongoCollection<Launch> Launches { get; set; }
+
         private IMongoDatabase _database { get; }
 
         public AppDbContext(ITestDatabaseSettings settings)
@@ -18,6 +20,12 @@ namespace TestAPI.Persistence.Contexts
 
             Engines = _database.GetCollection<Engine>(settings.EnginesCollectionName);
             Rockets = _database.GetCollection<Rocket>(settings.RocketsCollectionName);
+            Launches = _database.GetCollection<Launch>(settings.LaunchesCollectionName);
+        }
+        
+        public IMongoCollection<T> GetCollection<T>(string name)
+        {
+            return _database.GetCollection<T>(name);
         }
     }
 }

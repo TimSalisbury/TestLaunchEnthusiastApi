@@ -7,21 +7,11 @@ using TestAPI.Persistence.Contexts;
 
 namespace TestAPI.Persistence.Repositories
 {
-    public class EngineRepository : BaseRepository, IEngineRepository
+    public class EngineRepository : BaseRepository<Engine>, IEngineRepository
     {
-        public EngineRepository(AppDbContext context) : base(context)
+        public EngineRepository(AppDbContext context) : base(context, "engines")
         {
             
-        }
-
-        public List<Engine> Get()
-        {
-            return _context.Engines.Find(engine => true).ToList();
-        }
-
-        public Engine Get(int id)
-        {
-            return _context.Engines.Find(engine => engine.Id == id).FirstOrDefault();
         }
     }
 }

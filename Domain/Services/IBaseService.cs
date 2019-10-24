@@ -1,9 +1,11 @@
 using System.Collections.Generic;
-using TestAPI.Domain.Models;
 
 namespace TestAPI.Domain.Services
 {
-    public interface IRocketService : IBaseService<Rocket>
+    public interface IBaseService<T>
     {
+        List<T> Get();
+
+        T Get(int id);
     }
 }

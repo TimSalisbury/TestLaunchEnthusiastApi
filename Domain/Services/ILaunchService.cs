@@ -3,7 +3,8 @@ using TestAPI.Domain.Models;
 
 namespace TestAPI.Domain.Services
 {
-    public interface IRocketService : IBaseService<Rocket>
+    public interface ILaunchService : IBaseService<Launch>
     {
+        
     }
 }

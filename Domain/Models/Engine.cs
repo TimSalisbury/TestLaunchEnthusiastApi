@@ -10,10 +10,6 @@ namespace TestAPI.Domain.Models
     /// </summary>
     public class Engine : DatabaseObject
     {
-
-        [BsonId(Order = 1)]
-        public uint Id { get; set; }
-
         [BsonElement("name", Order = 2)]
         public string Name { get; set; }
 
@@ -34,5 +30,8 @@ namespace TestAPI.Domain.Models
 
         [BsonElement("cycle", Order = 8)]
         public string Cycle { get; set; }
+        
+        [BsonElement("wikipedia", Order = int.MaxValue)]
+        public string Wikipedia { get; set; }
     }
 }

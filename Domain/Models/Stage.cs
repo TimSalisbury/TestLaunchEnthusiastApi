@@ -4,10 +4,10 @@ namespace TestAPI.Domain.Models
 {
     public class Stage
     {
-
+        
         [BsonElement("number_engines", Order = 1)]
         public int NumberOfEngines { get; set; }
-
+        
         [BsonElement("engines_id", Order = 2)]
         public int EnginesID { get; set; }
 

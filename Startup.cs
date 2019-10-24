@@ -41,6 +41,9 @@ namespace TestAPI
 
             services.AddSingleton<IRocketRepository, RocketRepository>();
             services.AddSingleton<IRocketService, RocketService>();
+
+            services.AddSingleton<ILaunchRepository, LaunchRepository>();
+            services.AddSingleton<ILaunchService, LaunchService>();
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

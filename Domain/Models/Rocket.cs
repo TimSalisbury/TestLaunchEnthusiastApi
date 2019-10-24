@@ -7,10 +7,6 @@ namespace TestAPI.Domain.Models
 {
     public class Rocket : DatabaseObject
     {
-
-        [BsonId(Order =  1)]
-        public uint Id { get; set; }
-
         [BsonElement("name", Order = 2)]
         public string Name { get; set; }
 
@@ -50,6 +46,8 @@ namespace TestAPI.Domain.Models
         
         [BsonElement("payload", Order = 14)]
         public Payload Payload;
-
+        
+        [BsonElement("wikipedia", Order = int.MaxValue)]
+        public string Wikipedia { get; set; }
     }
 }
