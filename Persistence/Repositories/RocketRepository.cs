@@ -10,7 +10,6 @@ namespace TestAPI.Persistence.Repositories
     {
         public RocketRepository(AppDbContext context) : base(context, "rockets")
         {
-            
         }
     }
 }

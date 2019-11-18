@@ -9,7 +9,7 @@ namespace TestAPI.Persistence.Repositories
     {
         protected readonly AppDbContext _context;
 
-        private IMongoCollection<T> Collection;
+        private readonly IMongoCollection<T> Collection;
 
         protected BaseRepository(AppDbContext context, string CollectionName)
         {

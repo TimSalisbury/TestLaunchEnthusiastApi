@@ -33,5 +33,8 @@ namespace TestAPI.Domain.Models
         
         [BsonElement("wikipedia", Order = int.MaxValue)]
         public string Wikipedia { get; set; }
+
+        [BsonElement("image", Order = 9)]
+        public string Image { get; set; }
     }
 }
