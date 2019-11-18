@@ -7,28 +7,25 @@ namespace TestAPI.Persistence.Contexts
     public class AppDbContext
     {
         public IMongoCollection<Engine> Engines { get; set; }
-        public static string ConnectionString { get; set; }
+        public IMongoCollection<Rocket> Rockets { get; set; }
 
-        public static string DatabaseName { get; set; }
+        public IMongoCollection<Launch> Launches { get; set; }
 
         private IMongoDatabase _database { get; }
 
         public AppDbContext(ITestDatabaseSettings settings)
         {
-            BsonClassMap.RegisterClassMap<Engine>(e =>
-            {
-                e.AutoMap();
-            });
-
-            BsonClassMap.RegisterClassMap<Dimension>(d => { d.AutoMap(); });
-
-            BsonClassMap.RegisterClassMap<Thrust>(t => { t.AutoMap(); });
-            
-            
             var mongoClient = new MongoClient(settings.ConnectionString);
             _database = mongoClient.GetDatabase(settings.DatabaseName);
 
             Engines = _database.GetCollection<Engine>(settings.EnginesCollectionName);
+            Rockets = _database.GetCollection<Rocket>(settings.RocketsCollectionName);
+            Launches = _database.GetCollection<Launch>(settings.LaunchesCollectionName);
+        }
+        
+        public IMongoCollection<T> GetCollection<T>(string name)
+        {
+            return _database.GetCollection<T>(name);
         }
     }
 }

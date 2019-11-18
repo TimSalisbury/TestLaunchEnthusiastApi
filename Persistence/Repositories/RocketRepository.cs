@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using MongoDB.Driver;
 using TestAPI.Domain.Models;
 using TestAPI.Domain.Repositories;
@@ -7,11 +6,10 @@ using TestAPI.Persistence.Contexts;
 
 namespace TestAPI.Persistence.Repositories
 {
-    public class EngineRepository : BaseRepository<Engine>, IEngineRepository
+    public class RocketRepository : BaseRepository<Rocket>, IRocketRepository
     {
-        public EngineRepository(AppDbContext context) : base(context, "engines")
+        public RocketRepository(AppDbContext context) : base(context, "rockets")
         {
-            
         }
     }
 }

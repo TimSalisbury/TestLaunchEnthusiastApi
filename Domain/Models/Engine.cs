@@ -8,11 +8,8 @@ namespace TestAPI.Domain.Models
     /// <summary>
     /// Represents an engine database object
     /// </summary>
-    public class Engine
+    public class Engine : DatabaseObject
     {
-        [BsonId(Order = 1)]
-        public uint Id { get; set; }
-
         [BsonElement("name", Order = 2)]
         public string Name { get; set; }
 
@@ -33,5 +30,11 @@ namespace TestAPI.Domain.Models
 
         [BsonElement("cycle", Order = 8)]
         public string Cycle { get; set; }
+        
+        [BsonElement("wikipedia", Order = int.MaxValue)]
+        public string Wikipedia { get; set; }
+
+        [BsonElement("image", Order = 9)]
+        public string Image { get; set; }
     }
 }

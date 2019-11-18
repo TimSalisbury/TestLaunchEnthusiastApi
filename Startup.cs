@@ -35,8 +35,19 @@ namespace TestAPI
                 sp.GetRequiredService<IOptions<TestDatabaseSettings>>().Value);
 
             services.AddSingleton<AppDbContext>();
+            
             services.AddSingleton<IEngineRepository, EngineRepository>();
             services.AddSingleton<IEngineService, EngineService>();
+
+            services.AddSingleton<IRocketRepository, RocketRepository>();
+            services.AddSingleton<IRocketService, RocketService>();
+
+            services.AddSingleton<ILaunchRepository, LaunchRepository>();
+            services.AddSingleton<ILaunchService, LaunchService>();
+
+            services.AddSingleton<ILaunchSiteRepository, LaunchSiteRepository>();
+            services.AddSingleton<ILaunchSiteService, LaunchSiteService>();
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
